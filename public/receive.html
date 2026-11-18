@@ -2,13 +2,16 @@
 <meta name="robots" content="noindex"><title>Download video</title><link rel="stylesheet" href="/app.css"></head>
 <body><main>
 <h1>Download video</h1>
-<p class="lead">Enter the 6-digit key from the sender. You can download this file only once.</p>
-<form id="f" class="card hidden">
-<label for="key">6-digit key</label>
-<input id="key" inputmode="numeric" pattern="\d{6}" maxlength="6" autocomplete="off" required>
+<p class="lead">Enter the passphrase from the sender. The file can be downloaded only once.</p>
+<form id="f" class="card">
+<label for="code">Transfer code</label>
+<input id="code" maxlength="9" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX" required>
+<label for="pass">Passphrase</label>
+<input id="pass" type="password" autocomplete="off" required>
+<div id="ts"></div>
 <button id="go">Unlock and download</button>
 <div class="hint">The file is deleted as soon as the download starts.</div>
 </form>
 <div id="msg" class="msg hidden" role="status"></div>
-<script src="/receive.js"></script>
+<script src="/common.js"></script><script src="/receive.js"></script>
 </main></body></html>

@@ -18,3 +18,9 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .hidden{display:none}
 progress{width:100%;margin-top:16px}
 .link{word-break:break-all;font-family:Consolas,monospace;background:var(--bg);padding:10px;border-radius:6px;border:1px solid var(--line);margin:8px 0}
+#code{text-transform:uppercase;letter-spacing:.2em;text-align:center;font-size:1.25rem}
+.code{font-size:1.6rem;text-align:center;letter-spacing:.2em;font-weight:700}
+[hidden]{display:none!important}
+.row{display:flex;gap:8px}.row button{width:auto;margin-top:0;white-space:nowrap}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;margin-top:18px}.check input{width:auto;margin-top:4px}
+#ts{margin-top:16px}

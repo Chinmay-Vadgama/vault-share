@@ -17,9 +17,9 @@ async function refresh() {
   const st = document.getElementById('stats'); st.replaceChildren();
   const add = (n, l) => { const d = el('div', null, 'stat'); d.append(el('b', n), el('span', l)); st.append(d); };
   ['ready', 'downloading', 'purged'].forEach(k => add(s.transfers[k] || 0, k + ' transfers'));
-  [['UPLOAD_OK', 'uploads (24h)'], ['DOWNLOAD_COMPLETE', 'downloads (24h)'], ['UNLOCK_FAIL', 'wrong keys (24h)'], ['UPLOAD_REJECTED', 'rejected uploads (24h)'], ['ADMIN_AUTH_FAIL', 'admin login fails (24h)']].forEach(([k, l]) => add(s.events24h[k] || 0, l));
+  [['UPLOAD_OK', 'uploads (24h)'], ['DOWNLOAD_COMPLETE', 'downloads (24h)'], ['UNLOCK_FAIL', 'wrong keys (24h)'], ['UPLOAD_REJECTED', 'rejected uploads (24h)'], ['ADMIN_AUTH_FAIL', 'admin login fails (24h)'], ['TURNSTILE_FAIL', 'bot checks failed (24h)']].forEach(([k, l]) => add(s.events24h[k] || 0, l));
   table(document.getElementById('tt'), [
-    ['Created', r => fmt(r.created_at)], ['File', r => r.file_name], ['MB', r => (r.size / 1048576).toFixed(1)], ['Status', r => r.status],
+    ['Created', r => fmt(r.created_at)], ['File', r => r.file_name], ['MB', r => (r.size / 1048576).toFixed(1)], ['E2E', r => r.e2e ? 'yes' : 'no'], ['Status', r => r.status],
     ['Wrong keys', r => r.attempts], ['Sender IP', r => r.sender_ip], ['Downloaded', r => fmt(r.downloaded_at)], ['Recipient IP', r => r.downloaded_ip],
     ['Expires', r => fmt(r.expires_at)], ['Purge reason', r => r.purge_reason], ['ID', r => r.id]
   ], tr, r => {

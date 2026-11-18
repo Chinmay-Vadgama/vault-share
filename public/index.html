@@ -2,19 +2,22 @@
 <meta name="robots" content="noindex"><title>Send a video once</title><link rel="stylesheet" href="/app.css"></head>
 <body><main>
 <h1>Send a video once</h1>
-<p class="lead">The recipient needs your 6-digit key. After the first download, the file is deleted.</p>
+<p class="lead">The recipient needs your passphrase. After the first download, the file is deleted.</p>
 <form id="f" class="card">
 <label for="video">Video file</label>
-<input id="video" name="video" type="file" accept=".mp4,.m4v,.mov,.3gp,.3g2,.webm,.mkv,.avi,video/*" required>
-<div class="hint">mp4, m4v, mov, 3gp, webm, mkv or avi. Contents are verified on upload.</div>
-<label for="key">6-digit key</label>
-<input id="key" name="key" inputmode="numeric" pattern="\d{6}" maxlength="6" autocomplete="off" required>
-<div class="hint">Share the key through a different channel than the link.</div>
-<label for="ttl">Delete automatically if not downloaded within</label>
-<select id="ttl" name="ttl"><option value="1">1 hour</option><option value="6">6 hours</option><option value="24" selected>24 hours</option><option value="48">48 hours</option></select>
+<input id="video" type="file" accept=".mp4,.m4v,.mov,.3gp,.3g2,.webm,.mkv,.avi,video/*" required>
+<div class="hint">mp4, m4v, mov, 3gp, webm, mkv or avi. Contents are verified.</div>
+<label for="pass">Passphrase</label>
+<div class="row"><input id="pass" type="password" autocomplete="off" required><button id="gen" type="button">Generate</button></div>
+<div class="hint">At least <span id="minp">10</span> characters. Send it through a different channel than the link.</div>
+<label for="ttl">Delete automatically after</label>
+<select id="ttl"><option value="5" selected>5 minutes</option><option value="10">10 minutes</option><option value="15">15 minutes</option><option value="30">30 minutes</option><option value="60">60 minutes</option></select>
+<label id="e2ewrap" class="check"><input type="checkbox" id="e2e"><span>End-to-end encrypt in my browser. The server can't read or scan the video, so its malware scan is skipped. The recipient's browser still checks it is a real video before saving.</span></label>
+<div id="ts"></div>
 <progress id="p" class="hidden" max="100" value="0"></progress>
-<button id="go">Upload and create link</button>
+<button id="go">Upload and create share link</button>
 <div id="msg" class="msg hidden" role="status"></div>
 </form>
-<script src="/send.js"></script>
+<p class="hint">Receiving a video? Open the link the sender gave you, or <a href="/get">go to the download page</a>.</p>
+<script src="/common.js"></script><script src="/send.js"></script>
 </main></body></html>
